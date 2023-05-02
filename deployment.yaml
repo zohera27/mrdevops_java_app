@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: myjavaapp-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: myjavaapp
@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: myjavaapp
-        image: 496157679619.dkr.ecr.us-east-1.amazonaws.com/vikashashoke:latest
+        image: zohera27/javapp:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 8082
 
 ---
 apiVersion: v1
@@ -29,5 +29,5 @@ spec:
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 8082
   type: LoadBalancer
